@@ -1,7 +1,7 @@
 FROM ich777/debian-baseimage:bullseye_amd64
 
-LABEL org.opencontainers.image.authors="admin@minenet.at"
-LABEL org.opencontainers.image.source="https://github.com/ich777/docker-steamcmd-server"
+LABEL org.opencontainers.image.authors="support@emulvatore.com"
+LABEL org.opencontainers.image.source="https://github.com/mmasure/docker-steamcmd-server"
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends lib32gcc-s1 lib32stdc++6 lib32z1 && \
@@ -22,6 +22,7 @@ ENV USERNAME=""
 ENV PASSWRD=""
 ENV USER="steam"
 ENV DATA_PERM=770
+ENV STEAMTOKEN=""
 
 RUN mkdir $DATA_DIR && \
 	mkdir $STEAMCMD_DIR && \

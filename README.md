@@ -17,7 +17,7 @@ This Docker will download and install SteamCMD and the according game that is pu
 | VALIDATE | Validates the game data | blank |
 | USERNAME | Leave blank for anonymous login | blank |
 | PASSWRD | Leave blank for anonymous login | blank |
-
+| STEAMTOKEN | Leave blank for anonymous login | blank |
 ## Run example for CS:Source
 ```
 docker run --name CSSource -d \

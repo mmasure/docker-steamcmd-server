@@ -11,6 +11,10 @@ if [ "${USERNAME}" == "" ]; then
     ${STEAMCMD_DIR}/steamcmd.sh \
     +login anonymous \
     +quit
+elif [ "${STEAMTOKEN}" == ""]; then
+   ${STEAMCMD_DIR}/steamcmd.sh \
+      +login ${USERNAME} ${PASSWRD} ${STEAMTOKEN}\
+      +quit
 else
     ${STEAMCMD_DIR}/steamcmd.sh \
     +login ${USERNAME} ${PASSWRD} \
@@ -33,6 +37,21 @@ if [ "${USERNAME}" == "" ]; then
         +app_update ${GAME_ID} \
         +quit
     fi
+elif [ "${STEAMTOKEN}" == ""]; then
+    if [ "${VALIDATE}" == "true" ]; then
+      	echo "---Validating installation---"
+          ${STEAMCMD_DIR}/steamcmd.sh \
+          +force_install_dir ${SERVER_DIR} \
+          +login ${USERNAME} ${PASSWRD} ${STEAMTOKEN}\
+          +app_update ${GAME_ID} validate \
+          +quit
+      else
+          ${STEAMCMD_DIR}/steamcmd.sh \
+          +force_install_dir ${SERVER_DIR} \
+          +login ${USERNAME} ${PASSWRD} ${STEAMTOKEN}\
+          +app_update ${GAME_ID} \
+          +quit
+      fi
 else
     if [ "${VALIDATE}" == "true" ]; then
     	echo "---Validating installation---"
